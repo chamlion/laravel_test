@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 class UsersController extends Controller
 {
     public function create()
@@ -18,7 +19,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         return view('users.show', compact('user'));
     }
-	public function store(Request $request)
+	 public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:50',
@@ -32,7 +33,9 @@ class UsersController extends Controller
             'password' => $request->password,
         ]);
 
+        Auth::login($user);
         session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show', [$user]);
     }
+	
 }
