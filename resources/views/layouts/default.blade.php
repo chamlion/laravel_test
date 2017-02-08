@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>@yield('title', 'Sample App') - Laravel 入门教程</title>
+    <title>@yield('title', 'chamlion') - blog</title>
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
@@ -11,7 +11,6 @@
       <div class="col-md-offset-1 col-md-10">
         @include('shared.messages')
         @yield('content')
-        @include('layouts._footer')
       </div>
     </div>
 

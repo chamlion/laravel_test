@@ -5,7 +5,7 @@
   <title>注册确认链接</title>
 </head>
 <body>
-  <h1>感谢您在chamlion网站进行注册！</h1>
+  <h1>感谢您在网站chamlion'blog进行注册！</h1>
 
   <p>
     请点击下面的链接完成注册：
