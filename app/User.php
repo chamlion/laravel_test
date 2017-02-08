@@ -65,6 +65,15 @@ class User extends Model implements AuthenticatableContract,
                               ->with('user')
                               ->orderBy('created_at', 'desc');
     }
+	public function followers()
+    {
+        return $this->belongsToMany(User::Class, 'followers', 'user_id', 'follower_id');
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany(User::Class, 'followers', 'follower_id', 'user_id');
+    }
 	  public function follow($user_ids)
     {
         if (!is_array($user_ids)) {
@@ -84,14 +93,6 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->followings->contains($user_id);
     }
-	 public function followers()
-    {
-        return $this->belongsToMany(User::Class, 'followers', 'user_id', 'follower_id');
-    }
-
-    public function followings()
-    {
-        return $this->belongsToMany(User::Class, 'followers', 'follower_id', 'user_id');
-    }
+	 
 	
 }
