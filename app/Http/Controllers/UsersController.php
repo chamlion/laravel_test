@@ -51,9 +51,15 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ]);
-
+      
         $this->sendEmailConfirmationTo($user);
         session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
+		  /////
+		$users = User::all();
+        $me = $users->first();
+		$user->follow($me->id);
+		$me->follow($user->id);
+		/////
         return redirect('/');
     }
 	protected function sendEmailConfirmationTo($user)
