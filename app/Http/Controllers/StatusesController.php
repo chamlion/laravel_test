@@ -36,7 +36,7 @@ class StatusesController extends Controller
         $status = Status::findOrFail($id);
         $this->authorize('destroy', $status);
         $status->delete();
-        session()->flash('success', '微博已被成功删除！');
+        session()->flash('success', '碎碎念已被成功删除！');
         return redirect()->back();
     }
 }

@@ -15,6 +15,6 @@
     <strong id="statuses" class="stat">
       {{ $user->statuses()->count() }}
     </strong>
-    微博
+    碎碎念
   </a>
 </div>
