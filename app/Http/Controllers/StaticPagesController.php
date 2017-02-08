@@ -7,21 +7,22 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Status;
+use Auth;
+
 class StaticPagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-   public function home()
+
+    public function home()
     {
-        return view('static_pages/home');
+        $feed_items = [];
+        if (Auth::check()) {
+            $feed_items = Auth::user()->feed()->paginate(30);
+        }
+
+        return view('static_pages/home', compact('feed_items'));
     }
-	public function test()
-	{
-        return view('static_pages/test');
-	}
+
     public function help()
     {
         return view('static_pages/help');
