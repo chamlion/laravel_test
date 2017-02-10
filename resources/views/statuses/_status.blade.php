@@ -8,6 +8,7 @@
   <span class="timestamp">
     {{ $status->created_at->diffForHumans() }}
   </span>
+  <span class="content">《{{ $status->title }}》</span>
   <span class="content">{{ $status->content }}</span>
   @can('destroy', $status)
       <form action="{{ route('statuses.destroy', $status->id) }}" method="POST">
@@ -16,4 +17,8 @@
         <button type="submit" class="btn btn-sm btn-danger status-delete-btn">删除</button>
       </form>
   @endcan
+    <form action="{{ route('statuses.show', $status->id) }}" method="get">
+        <button type="submit" class="btn btn-sm btn-info status-info-btn ">查看全文</button>
+  </form>
+
 </li>
