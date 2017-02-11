@@ -14,7 +14,7 @@ class AddMdcontentisToStatusesTable extends Migration
     {
         Schema::table('statuses', function (Blueprint $table) {
             //
-			$table->text('mdcontent');
+			$table->text('mdcontent')->default("  ");
         });
     }
 
