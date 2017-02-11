@@ -16,6 +16,11 @@
         {{ method_field('DELETE') }}
         <button type="submit" class="btn btn-sm btn-danger status-delete-btn">删除</button>
       </form>
+	  <form action="{{ route('statuses.edit', $status->id) }}" method="get">
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-sm btn-warning status-edit-btn">修改</button>
+      </form>
+	  
   @endcan
     <form action="{{ route('statuses.show', $status->id) }}" method="get">
         <button type="submit" class="btn btn-sm btn-info status-info-btn ">查看全文</button>

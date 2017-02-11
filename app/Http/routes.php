@@ -27,8 +27,11 @@ get('password/email', 'Auth\PasswordController@getEmail')->name('password.reset'
 post('password/email', 'Auth\PasswordController@postEmail')->name('password.reset');
 get('password/reset/{token}', 'Auth\PasswordController@getReset')->name('password.edit');
 post('password/reset', 'Auth\PasswordController@postReset')->name('password.update');
-resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
+post('statuses', 'StatusesController@create')->name('statuses.create');
+delete('statuses/{id}', 'StatusesController@destroy')->name('statuses.destroy');
 get('statuses/{id}','StatusesController@show')->name('statuses.show');
+get('statuses/{id}/edit','StatusesController@edit')->name('statuses.edit');
+post('statuses/{id}','StatusesController@store')->name('statuses.store');
 get('/users/{id}/status_edit','UsersController@status_edit')->name('users.status_edit');
 get('/users/{id}/followings', 'UsersController@followings')->name('users.followings');
 get('/users/{id}/followers', 'UsersController@followers')->name('users.followers');

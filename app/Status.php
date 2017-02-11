@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
-{    protected $fillable = ['content','title'];
+{    protected $fillable = ['content','title','mdcontent'];
     public function user()
     {
         return $this->belongsTo(User::class);

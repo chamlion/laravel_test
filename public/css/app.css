@@ -5926,6 +5926,10 @@ input {
     position: absolute;
     right: 0px;
     top: 10px; }
+  .statuses form button.status-edit-btn {
+    position: absolute;
+    right: 200px;
+    top: 10px; }
   .statuses form button.status-info-btn {
     position: absolute;
     right: 100px;

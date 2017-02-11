@@ -140,7 +140,7 @@ class UsersController extends Controller
 	public function status_edit($id)
 	{   $user = User::findOrFail($id);
         $this->authorize('update', $user);
-		return view('users.status_edit');
+		return view('users.status_create');
 		
 	}
 }
