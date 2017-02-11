@@ -29,6 +29,7 @@ get('password/reset/{token}', 'Auth\PasswordController@getReset')->name('passwor
 post('password/reset', 'Auth\PasswordController@postReset')->name('password.update');
 resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
 get('statuses/{id}','StatusesController@show')->name('statuses.show');
+get('/users/{id}/status_edit','UsersController@status_edit')->name('users.status_edit');
 get('/users/{id}/followings', 'UsersController@followings')->name('users.followings');
 get('/users/{id}/followers', 'UsersController@followers')->name('users.followers');
 post('/users/followers/{id}', 'FollowersController@store')->name('followers.store');

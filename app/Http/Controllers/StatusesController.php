@@ -26,12 +26,12 @@ class StatusesController extends Controller
             'content' => 'required|max:10000',
 			'title'=>'required|max:20'
         ]);
-
+        
         Auth::user()->statuses()->create([
 			'title'=>$request->title,
 			'content' => $request->content
         ]);
-        return redirect()->back();
+        return redirect('/');
     }
 
     public function destroy($id)
@@ -47,7 +47,6 @@ class StatusesController extends Controller
 	    $user = User::findOrFail($status->user_id);
 		return view('users.show_blog', compact('user', 'status'));
 	}
-	
 	
 	
 	

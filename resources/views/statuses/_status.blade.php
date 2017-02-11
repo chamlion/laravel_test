@@ -9,7 +9,7 @@
     {{ $status->created_at->diffForHumans() }}
   </span>
   <span class="content">《{{ $status->title }}》</span>
-  <span class="content">{{ $status->content }}</span>
+ <!-- <span class="content">{{ $status->content }}</span>  -->
   @can('destroy', $status)
       <form action="{{ route('statuses.destroy', $status->id) }}" method="POST">
         {{ csrf_field() }}

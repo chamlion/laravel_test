@@ -14,7 +14,7 @@ class UsersController extends Controller
    public function __construct()
     {
          $this->middleware('auth', [
-            'only' => ['edit', 'update', 'destroy', 'followings', 'followers']
+            'only' => ['edit', 'update', 'destroy', 'followings', 'followers','status_edit']
         ]);
 
         $this->middleware('guest', [
@@ -136,7 +136,13 @@ class UsersController extends Controller
         $users = $user->followers()->paginate(30);
         $title = '粉丝';
         return view('users.show_follow', compact('users', 'title'));
-    }
+    } 
+	public function status_edit($id)
+	{   $user = User::findOrFail($id);
+        $this->authorize('update', $user);
+		return view('users.status_edit');
+		
+	}
 }
 
 

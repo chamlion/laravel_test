@@ -4,9 +4,6 @@
   @if (Auth::check())
     <div class="row">
       <div class="col-md-8">
-        <section class="status_form">
-          @include('shared.status_form')
-        </section>
         <h3>碎碎念列表</h3>
         @include('shared/feed')
       </div>
