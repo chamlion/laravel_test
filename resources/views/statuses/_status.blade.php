@@ -17,7 +17,6 @@
         <button type="submit" class="btn btn-sm btn-danger status-delete-btn">删除</button>
       </form>
 	  <form action="{{ route('statuses.edit', $status->id) }}" method="get">
-        {{ csrf_field() }}
         <button type="submit" class="btn btn-sm btn-warning status-edit-btn">修改</button>
       </form>
 	  
